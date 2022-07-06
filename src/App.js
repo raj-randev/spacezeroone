@@ -4,7 +4,9 @@ import Test from './assets/Test1';
 function App() {
   return (
     <div className="App">
-      <header>Space Zero One Test</header>
+      <header>
+        <h1>Space Zero One Test</h1>
+        </header>
       <Test/>
     </div>
   );

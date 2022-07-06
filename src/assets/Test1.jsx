@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState } from 'react';
+import React from 'react'
+import { useState } from 'react'
 
 const data = [
     { name: 'Item A', price: 125 },
@@ -18,11 +18,17 @@ const Test = () => {
    
 
     const [isShown, setIsShown] = useState(true)
-    const [buttonText, setButtonText] = useState('Expand' )
+    const [buttonText, setButtonText] = useState('View All' )
 
     const handleClick = () => {
         setIsShown(current => !current)
-        setButtonText(!buttonText ? 'Expand' : 'Collapse')
+        setButtonText(()=> {
+            if (buttonText === "View All") {
+                setButtonText("Collapse")
+            } else {
+                setButtonText("View All")
+            }
+        })
       };
 
     const numAscending = [...data].sort((a, b)=> a.price - b.price)
@@ -32,9 +38,10 @@ const Test = () => {
     let fiveItems = numAscending.slice(0, 5)
     
     return (
-        <div>
-            <button onClick={handleClick}>{buttonText}</button>
-            <table>
+        <div className="ProductListContainer">
+            
+            <button className='buttonOne' onClick={handleClick}>{buttonText}</button>
+            <table className='ProductTable'>
                 <thead>
                     <tr>
                         <th>Product</th>
